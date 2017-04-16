@@ -26,6 +26,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
+RUN conda install mkl-service
+
 # Tini makes notebook kernels work
 ADD https://github.com/krallin/tini/releases/download/$TINI_VERSION/tini /tini
 RUN chmod +x /tini
